@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/main.css">
+    <title>Unit Converter</title>
+  </head>
+
+  <body>
+    <main class="app-shell">
+      <h1>Unit Converter</h1>
+
+      <nav aria-label="Conversion types">
+        <ul class="nav-bar">
+          <li><button class="nav-btn js-tab is-active" data-type="length">Length</button></li>
+          <li><button class="nav-btn js-tab" data-type="weight">Weight</button></li>
+          <li><button class="nav-btn js-tab" data-type="temperature">Temperature</button></li>
+        </ul>
+      </nav>
+
+      <section id="converter-content" class="converter-content" aria-live="polite">
+        <h2>Length Converter</h2>
+        <p>Select units and enter a value to convert.</p>
+      </section>
+    </main>
+
+    <script src="../scripts/main.js" type="module"></script>
+  </body>
+</html>
