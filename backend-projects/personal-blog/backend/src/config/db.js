@@ -1,8 +1,11 @@
+import 'dotenv/config';
 import fs from "node:fs/promises";
 import path from "node:path";
 
 const __dirname = import.meta.dirname;
-export const dbPath = path.resolve(__dirname, '..', '..', 'db', 'articles.json');
+const dbFileName = process.env.DB_FILE || "articles.json";
+
+export const dbPath = path.resolve(__dirname, "..", "..", "db", dbFileName);
 
 
 export async function connectDB() {

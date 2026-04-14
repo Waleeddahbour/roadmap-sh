@@ -9,6 +9,12 @@ function getNextArticleId(articles) {
   return numericIds.length === 0 ? 1 : Math.max(...numericIds) + 1;
 }
 
+export const getAdminArticles = async (req, res, next) => {
+  const articles = await connectDB();
+
+  return res.status(200).json({ status: "success", articles});
+}
+
 
 export const addNewArticle = async (req, res, next) => {
   const { title, content } = req.body ?? {};
