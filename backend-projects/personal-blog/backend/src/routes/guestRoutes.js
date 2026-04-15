@@ -4,6 +4,6 @@ import asyncHandler from "../middleware/asyncHandler.js";
 
 const router = express.Router();
 
-router.get('/', asyncHandler(getArticles));
+router.get("/", asyncHandler(getArticles));
 
 export default router;

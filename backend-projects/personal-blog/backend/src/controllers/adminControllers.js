@@ -12,9 +12,8 @@ function getNextArticleId(articles) {
 export const getAdminArticles = async (req, res, next) => {
   const articles = await connectDB();
 
-  return res.status(200).json({ status: "success", articles});
-}
-
+  return res.status(200).json({ status: "success", articles });
+};
 
 export const addNewArticle = async (req, res, next) => {
   const { title, content } = req.body ?? {};
@@ -24,7 +23,7 @@ export const addNewArticle = async (req, res, next) => {
   if (!normalizedTitle || !normalizedContent) {
     return res.status(400).json({
       status: "fail",
-      message: "title and content are required"
+      message: "title and content are required",
     });
   }
 
@@ -36,7 +35,7 @@ export const addNewArticle = async (req, res, next) => {
     title: normalizedTitle,
     content: normalizedContent,
     createdAt: now(),
-    updatedAt: now()
+    updatedAt: now(),
   };
 
   articles.push(newArticle);
@@ -45,17 +44,16 @@ export const addNewArticle = async (req, res, next) => {
   return res.status(201).json({
     status: "success",
     message: "Article added successfully",
-    data: { id: newArticle.id, title: newArticle.title }
+    data: { id: newArticle.id, title: newArticle.title },
   });
 };
-
 
 export const editArticle = async (req, res, next) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
     return res.status(400).json({
       status: "fail",
-      message: "Please provide a valid id."
+      message: "Please provide a valid id.",
     });
   }
 
@@ -69,7 +67,7 @@ export const editArticle = async (req, res, next) => {
   if (!toEdit) {
     return res.status(404).json({
       status: "fail",
-      message: "Article not found"
+      message: "Article not found",
     });
   }
 
@@ -85,8 +83,8 @@ export const editArticle = async (req, res, next) => {
     data: {
       title: toEdit.title,
       content: toEdit.content,
-      updatedAt: toEdit.updatedAt
-    }
+      updatedAt: toEdit.updatedAt,
+    },
   });
 };
 
@@ -95,24 +93,24 @@ export const deleteArticle = async (req, res, next) => {
   if (!Number.isInteger(id) || id <= 0) {
     return res.status(400).json({
       status: "fail",
-      message: "Please provide a valid id."
+      message: "Please provide a valid id.",
     });
   }
 
   const articles = await connectDB();
   const toDeleteIndex = articles.findIndex((article) => article.id === id);
-  
+
   if (toDeleteIndex === -1) {
     return res.status(404).json({
       status: "fail",
-      message: "Article not found"
+      message: "Article not found",
     });
   }
   articles.splice(toDeleteIndex, 1);
   await saveArticles(articles);
 
-  return res.status(200).json({ 
-    status: "success", 
-    message: `Deleted article ${id}`
+  return res.status(200).json({
+    status: "success",
+    message: `Deleted article ${id}`,
   });
 };

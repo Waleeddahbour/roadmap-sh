@@ -17,7 +17,9 @@ let originalDbContent;
 let testDbExisted = false;
 
 const authHeader = () => {
-  const token = Buffer.from(`${ADMIN_USERNAME}:${ADMIN_PASSWORD}`).toString("base64");
+  const token = Buffer.from(`${ADMIN_USERNAME}:${ADMIN_PASSWORD}`).toString(
+    "base64",
+  );
   return `Basic ${token}`;
 };
 
@@ -30,8 +32,7 @@ const waitForServer = async (timeoutMs = 10000) => {
       if (response.ok || response.status === 401) {
         return;
       }
-    } catch {
-    }
+    } catch {}
 
     await new Promise((resolve) => setTimeout(resolve, 200));
   }
@@ -47,9 +48,9 @@ const startServer = async () => {
       PORT: String(PORT),
       ADMIN_USERNAME,
       ADMIN_PASSWORD,
-      DB_FILE: TEST_DB_FILE
+      DB_FILE: TEST_DB_FILE,
     },
-    stdio: ["ignore", "pipe", "pipe"]
+    stdio: ["ignore", "pipe", "pipe"],
   });
 
   await waitForServer();
@@ -111,7 +112,7 @@ test("full blog API flow: guest list -> admin create/get/edit/delete", async () 
   const unauthorizedCreateRes = await fetch(`${BASE_URL}/admin/new`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title: "Unauthorized", content: "Should fail" })
+    body: JSON.stringify({ title: "Unauthorized", content: "Should fail" }),
   });
   assert.equal(unauthorizedCreateRes.status, 401);
 
@@ -119,9 +120,9 @@ test("full blog API flow: guest list -> admin create/get/edit/delete", async () 
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: authHeader()
+      Authorization: authHeader(),
     },
-    body: JSON.stringify({ title: "First Post", content: "Hello world" })
+    body: JSON.stringify({ title: "First Post", content: "Hello world" }),
   });
 
   assert.equal(createRes.status, 201);
@@ -137,11 +138,11 @@ test("full blog API flow: guest list -> admin create/get/edit/delete", async () 
   assert.deepEqual(guestAfterCreateBody.guestArticles[0], {
     id: 1,
     title: "First Post",
-    content: "Hello world"
+    content: "Hello world",
   });
 
   const authorizedAdminGetRes = await fetch(`${BASE_URL}/admin/`, {
-    headers: { Authorization: authHeader() }
+    headers: { Authorization: authHeader() },
   });
   assert.equal(authorizedAdminGetRes.status, 200);
   const authorizedAdminGetBody = await authorizedAdminGetRes.json();
@@ -152,9 +153,9 @@ test("full blog API flow: guest list -> admin create/get/edit/delete", async () 
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: authHeader()
+      Authorization: authHeader(),
     },
-    body: JSON.stringify({ title: "Updated Post", content: "Updated content" })
+    body: JSON.stringify({ title: "Updated Post", content: "Updated content" }),
   });
 
   assert.equal(editRes.status, 200);
@@ -165,7 +166,7 @@ test("full blog API flow: guest list -> admin create/get/edit/delete", async () 
 
   const deleteRes = await fetch(`${BASE_URL}/admin/delete/1`, {
     method: "DELETE",
-    headers: { Authorization: authHeader() }
+    headers: { Authorization: authHeader() },
   });
 
   assert.equal(deleteRes.status, 200);

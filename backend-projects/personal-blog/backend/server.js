@@ -1,12 +1,21 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 
 // Import Routes
 import adminRoutes from "./src/routes/adminRoutes.js";
 import guestRoutes from "./src/routes/guestRoutes.js";
 
 const PORT = process.env.PORT || 3000;
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 const app = express();
+
+app.use(
+  cors({
+    origin: FRONTEND_URL,
+    credentials: true,
+  }),
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +30,7 @@ app.use((err, req, res, next) => {
   console.error(err);
   return res.status(500).json({
     status: "error",
-    message: "Internal server error"
+    message: "Internal server error",
   });
 });
 

@@ -6,7 +6,8 @@ export const getArticles = async (req, res, next) => {
   const guestArticles = articles.map((article) => ({
     id: article.id,
     title: article.title,
-    content: article.content
+    content: article.content,
+    createdAt: article.createdAt,
   }));
 
   return res.status(200).json({ status: "success", guestArticles });
