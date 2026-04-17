@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Getting Started with JavaScript",
+    "content": "JavaScript is a lightweight, interpreted programming language with first-class functions. It is most well-known as the scripting language for web pages, but it is also used in many non-browser environments such as Node.js. In this article we explore the basics of variables, data types, and control flow to help you get started.",
+    "createdAt": "2026-04-14T01:00:56.427Z",
+    "updatedAt": "2026-04-14T01:00:56.427Z"
+  },
+  {
+    "id": 2,
+    "title": "Understanding React Hooks",
+    "content": "React Hooks were introduced in React 16.8 and allow you to use state and other React features without writing a class component. The most common hooks are useState, useEffect, and useContext. This guide walks through practical examples for each hook and explains when and why to use them.",
+    "createdAt": "2026-04-14T01:00:56.472Z",
+    "updatedAt": "2026-04-14T01:00:56.472Z"
+  },
+  {
+    "id": 3,
+    "title": "A Beginner's Guide to REST APIs",
+    "content": "REST (Representational State Transfer) is an architectural style for building web services. A REST API exposes resources via HTTP methods such as GET, POST, PUT, PATCH and DELETE. In this article we build a simple REST API from scratch and explain the principles behind stateless communication and resource-based URLs.",
+    "createdAt": "2026-04-14T01:00:56.487Z",
+    "updatedAt": "2026-04-14T01:00:56.487Z"
+  },
+  {
+    "id": 4,
+    "title": "CSS Grid vs Flexbox: When to Use Which",
+    "content": "Both CSS Grid and Flexbox are powerful layout tools, but they serve different purposes. Flexbox is one-dimensional and great for laying out items in a row or column. Grid is two-dimensional and ideal for full page layouts. Learn how to combine both to build modern, responsive UIs without fighting the browser.",
+    "createdAt": "2026-04-14T01:00:56.505Z",
+    "updatedAt": "2026-04-14T01:00:56.505Z"
+  },
+  {
+    "id": 5,
+    "title": "Node.js Event Loop Explained",
+    "content": "Understanding the Node.js event loop is key to writing efficient, non-blocking server-side code. Node runs on a single thread but uses an event-driven, non-blocking I/O model to handle many connections simultaneously. This article breaks down the phases of the event loop with clear diagrams and code examples.",
+    "createdAt": "2026-04-14T01:00:56.522Z",
+    "updatedAt": "2026-04-14T01:00:56.522Z"
+  },
+  {
+    "id": 6,
+    "title": "Introduction to TypeScript",
+    "content": "TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript. It adds optional static types, interfaces, generics, and powerful tooling support. In this post we cover type annotations, interfaces, union types, and how to migrate an existing JavaScript project to TypeScript incrementally.",
+    "createdAt": "2026-04-14T01:00:56.541Z",
+    "updatedAt": "2026-04-14T01:00:56.541Z"
+  },
+  {
+    "id": 7,
+    "title": "How HTTP Works: A Deep Dive",
+    "content": "Every time you open a webpage, HTTP is at work. HTTP (HyperText Transfer Protocol) defines how messages are formatted and transmitted between browsers and servers. This article explores request/response cycles, status codes, headers, cookies, and the differences between HTTP/1.1, HTTP/2, and HTTP/3.",
+    "createdAt": "2026-04-14T01:00:56.560Z",
+    "updatedAt": "2026-04-14T01:00:56.560Z"
+  },
+  {
+    "id": 8,
+    "title": "Building a CLI Tool with Node.js",
+    "content": "Command-line tools are incredibly useful for automating repetitive tasks. Node.js makes it easy to build cross-platform CLI tools using built-in modules like fs, path, and process, along with libraries like commander and chalk. Follow along as we build a full-featured task manager CLI from scratch.",
+    "createdAt": "2026-04-14T01:00:56.583Z",
+    "updatedAt": "2026-04-14T01:00:56.583Z"
+  },
+  {
+    "id": 9,
+    "title": "Git Branching Strategies for Teams",
+    "content": "Choosing the right Git branching strategy can dramatically improve your team's productivity and reduce merge conflicts. This article compares Git Flow, trunk-based development, and GitHub Flow, discussing the trade-offs of each approach and giving recommendations based on team size and release frequency.",
+    "createdAt": "2026-04-14T01:00:56.606Z",
+    "updatedAt": "2026-04-14T01:00:56.606Z"
+  },
+  {
+    "id": 10,
+    "title": "Web Accessibility: The Basics Every Developer Should Know",
+    "content": "Web accessibility ensures that websites are usable by people with disabilities. This includes proper use of semantic HTML, ARIA labels, keyboard navigation, sufficient color contrast, and descriptive alt text for images. This guide shows common accessibility mistakes and how to fix them with minimal effort.",
+    "createdAt": "2026-04-14T01:00:56.629Z",
+    "updatedAt": "2026-04-14T01:00:56.629Z"
+  }
+]

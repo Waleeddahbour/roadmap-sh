@@ -1,7 +1,7 @@
-import { connectDB } from "../config/db.js";
+import { loadArticles } from "../config/db.js";
 
 export const getArticles = async (req, res, next) => {
-  const articles = await connectDB();
+  const articles = await loadArticles();
 
   const guestArticles = articles.map((article) => ({
     id: article.id,

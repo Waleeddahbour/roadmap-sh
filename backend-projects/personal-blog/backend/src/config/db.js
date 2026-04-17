@@ -7,11 +7,11 @@ const dbFileName = process.env.DB_FILE || "articles.json";
 
 export const dbPath = path.resolve(__dirname, "..", "..", "db", dbFileName);
 
-export async function connectDB() {
+export async function loadArticles() {
   try {
     const articlesFile = await fs.readFile(dbPath, "utf-8");
     const articles = JSON.parse(articlesFile);
-    console.log("DB connected successfully");
+    console.log("Articles loaded successfully");
     return articles;
   } catch (err) {
     if (err.code === "ENOENT") {
@@ -19,7 +19,7 @@ export async function connectDB() {
       console.log(`DB file created successfully path: ${dbPath}`);
       const articlesFile = await fs.readFile(dbPath, "utf-8");
       const articles = JSON.parse(articlesFile);
-      console.log("DB connected successfully");
+      console.log("Articles loaded successfully");
       return articles;
     }
     throw err;

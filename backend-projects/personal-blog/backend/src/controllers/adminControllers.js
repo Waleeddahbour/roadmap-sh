@@ -1,4 +1,4 @@
-import { connectDB, saveArticles } from "../config/db.js";
+import { loadArticles, saveArticles } from "../config/db.js";
 import { now } from "../utils/dateTime.js";
 
 function getNextArticleId(articles) {
@@ -10,7 +10,7 @@ function getNextArticleId(articles) {
 }
 
 export const getAdminArticles = async (req, res, next) => {
-  const articles = await connectDB();
+  const articles = await loadArticles();
 
   return res.status(200).json({ status: "success", articles });
 };
@@ -27,7 +27,7 @@ export const addNewArticle = async (req, res, next) => {
     });
   }
 
-  const articles = await connectDB();
+  const articles = await loadArticles();
   const nextId = getNextArticleId(articles);
 
   const newArticle = {
@@ -61,7 +61,7 @@ export const editArticle = async (req, res, next) => {
   const normalizedTitle = typeof title === "string" ? title.trim() : "";
   const normalizedContent = typeof content === "string" ? content.trim() : "";
 
-  const articles = await connectDB();
+  const articles = await loadArticles();
   const toEdit = articles.find((article) => article.id === id);
 
   if (!toEdit) {
@@ -97,7 +97,7 @@ export const deleteArticle = async (req, res, next) => {
     });
   }
 
-  const articles = await connectDB();
+  const articles = await loadArticles();
   const toDeleteIndex = articles.findIndex((article) => article.id === id);
 
   if (toDeleteIndex === -1) {
